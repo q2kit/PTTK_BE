@@ -27,3 +27,17 @@ class Seller(models.Model):
     shop_name = models.CharField(max_length=100)
     shop_description = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100)
+
+
+class City(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class District(models.Model):
+    name = models.CharField(max_length=100)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+
+
+class Ward(models.Model):
+    name = models.CharField(max_length=100)
+    district = models.ForeignKey(District, on_delete=models.CASCADE)
