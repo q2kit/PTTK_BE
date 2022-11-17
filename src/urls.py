@@ -7,4 +7,7 @@ urlpatterns = [
     path('address/get_cities', get_cities),
     path('address/get_districts', get_districts),
     path('address/get_wards', get_wards),
+
+    path('customer/register', create_customer),
+    path('seller/register', create_seller),
 ]
