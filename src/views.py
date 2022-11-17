@@ -58,7 +58,17 @@ def create_customer(request):
 
 @csrf_exempt
 def create_seller(request):
-    return auth(request, controller.create_seller)
+    try:
+        controller.create_seller(request)
+        return JsonResponse({
+            "status": "OK",
+            "message": "Seller created"
+        }, status=200)
+    except Exception as e:
+        return JsonResponse({
+            "status": "ER",
+            "message": str(e)
+        }, status=400)
 
 
 @csrf_exempt
